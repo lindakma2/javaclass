@@ -1,0 +1,66 @@
+package com.pcsetting.example;
+
+import java.util.Scanner;
+
+public class Q4CH19 {
+	public static class SalesCommision
+	{
+		public SalesCommision() {}
+		public SalesCommision(double value[],int size)
+		{
+			this.value=new double[size];
+			for(int i=0;i<size;i++)
+			{
+				this.value[i]=value[i];
+			}
+		}
+		
+		public void setvalue(double value[],int size)
+		{
+			for(int i=0;i<size;i++)
+			{
+				this.value[i]=value[i];
+			}
+		}
+		
+		public double[] getvalue()
+		{
+			return value;
+		}
+
+		public double calculatetotal(int size)
+		{
+			double total=0;
+			for(int i=0;i<size;i++)
+			{
+				total=total+value[i];
+			}
+			return total;
+		}
+		
+		private double[] value;
+	}
+	
+	public static void main(String args[])
+	{
+		Scanner input=new Scanner(System.in);
+		double[] entervalue=new double[50];
+		int enteritem=0;
+		int entercheck=0;
+		System.out.println("pleas enter item number(-1 to exit)");
+		entercheck=input.nextInt();
+		while(entercheck!=-1)
+		{
+			System.out.println("pleas enter value");
+			entervalue[enteritem]=input.nextDouble();
+			enteritem++;
+			System.out.println("pleas enter item number(start from 0,-1 to exit)");
+			entercheck=input.nextInt();
+		}
+		
+		SalesCommision obj=new SalesCommision(entervalue,entervalue.length);
+		
+		double entertotal=obj.calculatetotal(entervalue.length)*0.9+200;
+		System.out.print("total commission is "+ entertotal);
+	}
+}
