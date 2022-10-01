@@ -1,0 +1,89 @@
+package com.pcsetting.example;
+import java.util.Scanner;
+
+public class CH3Q14 {
+	public static class Clock
+	{
+		private int hour;
+		private int minute;
+		private int second;
+		
+		public Clock() {}
+		public Clock(int hour,int minute,int second) 
+		{
+			this.hour=hour;
+			this.minute=minute;
+			this.second=second;
+		}
+		
+		public void sethour(int hour)
+		{
+			if(hour>=0&&hour<=24)
+			{
+				this.hour=hour;
+			}
+			else
+			{
+				return;
+			}
+		}
+		
+		public void setminute(int minute)
+		{
+			if(minute>=0&&minute<60)
+			{
+				this.minute=minute;
+			}
+			else
+			{
+				return;
+			}
+		}
+		
+		public void setsecond(int second)
+		{
+			if(second>=0&&second<60)
+			{
+				this.second=second;
+			}
+			else
+			{
+				return;
+			}
+		}
+
+		public int gethour()
+		{
+			return hour;
+		}
+		
+		public int getminute()
+		{
+			return minute;
+		}
+		
+		public int getsecond()
+		{
+			return second;
+		}
+		
+		public void displayTime()
+		{
+			System.out.println("the time is "+hour+":"+minute+":"+second);
+		}
+	}
+	
+	public static void main(String[] args)
+	{
+		Scanner input=new Scanner(System.in);
+		System.out.println("please enter the hour");
+		int thehour=input.nextInt();
+		System.out.println("please enter the minute");
+		int theminute=input.nextInt();
+		System.out.println("please enter the second");
+		int thesecond=input.nextInt();
+		
+		Clock Clock1=new Clock(thehour,theminute,thesecond);
+		Clock1.displayTime();
+	}
+}
